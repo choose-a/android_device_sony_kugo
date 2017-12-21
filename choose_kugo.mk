@@ -12,20 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include device/sony/loire-common/PlatformConfig.mk
+# Bootanimation
+TARGET_BOOTANIMATION_SIZE := 720x407
 
-TARGET_BOOTLOADER_BOARD_NAME := F5321
+# Inherit device parts
+$(call inherit-product, device/sony/kugo/aosp_f5321.mk)
+$(call inherit-product, device/sony/common/choose-a.mk)
 
-# Platform
-PRODUCT_PLATFORM := loire
+# Override Product Name
+PRODUCT_NAME := choose_kugo
+PRODUCT_MODEL := Xperia X Compact
 
-BOARD_KERNEL_CMDLINE += androidboot.hardware=kugo
-
-# Partition information
-BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
-BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 6197084160
-#Reserve space for data encryption (23894949888-16384)
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 23894933504
-
-#TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
+# Assert
+TARGET_OTA_ASSERT_DEVICE := none
