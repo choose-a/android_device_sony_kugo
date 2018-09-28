@@ -58,7 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # NFC Configuration
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/vendor/etc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
+    $(DEVICE_PATH)/vendor/etc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(DEVICE_PATH)/vendor/etc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # BT FW patch
@@ -78,10 +78,6 @@ PRODUCT_PACKAGES += \
 # Simple PowerHAL
 PRODUCT_PACKAGES += \
     power.kugo
-
-# NFC config
-PRODUCT_PACKAGES += \
-    nfc_nci.kugo
 
 # Telephony Packages (AOSP)
 PRODUCT_PACKAGES += \
